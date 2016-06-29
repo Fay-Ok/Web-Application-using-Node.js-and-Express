@@ -10,9 +10,39 @@ app.use(express.static('public'));
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
+var books = [
+    {
+        title: 'guidtogalexy',
+        gener: 'comic fiction',
+        author: 'someone'
+    },
+    {
+        title: 'Alchemist',
+        gener: 'fiction',
+        author: 'pual'
+    },
+    {
+        title: 'Alchemist',
+        gener: 'fiction',
+        author: 'pual'
+    },
+    {
+        title: 'Alchemist',
+        gener: 'fiction',
+        author: 'pual'
+    }
+];
+
 bookRouter.route('/')
     .get(function (req, res) {
-        res.send('Hello Books');
+        res.render('books', {
+            title: 'Books',
+            nav: [
+                { Link: '/Books', Text: 'Books' },
+                { Link: '/Authors', Text: 'Authors' }
+            ],
+            books: books
+        });
 
     });
 
