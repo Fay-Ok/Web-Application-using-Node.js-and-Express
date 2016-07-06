@@ -3,9 +3,9 @@ var adminRouter = express.Router();
 var router = function (nav) {
 
     adminRouter.route('/addBooks')
-        .get(function(req,res){
+        .get(function (req, res) {
             res.send('inserting books');
-                });
+        });
     return adminRouter;
 };
 
