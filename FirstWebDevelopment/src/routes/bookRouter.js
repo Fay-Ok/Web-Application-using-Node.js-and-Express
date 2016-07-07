@@ -3,29 +3,7 @@ var express = require('express');
 var bookRouter = express.Router();
 
 var router = function (nav) {
-    var books = [
-        {
-            title: 'guidtogalexy',
-            gener: 'comic fiction',
-            author: 'someone'
-        },
-        {
-            title: 'Alchemist',
-            gener: 'fiction',
-            author: 'pual'
-        },
-        {
-            title: 'Alchemist',
-            gener: 'fiction',
-            author: 'pual'
-        },
-        {
-            title: 'Alchemist',
-            gener: 'fiction',
-            author: 'pual'
-        }
-    ];
-
+   
     bookRouter.route('/')
         .get(function (req, res) {
             res.render('bookListView', {
