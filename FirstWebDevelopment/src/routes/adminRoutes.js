@@ -32,8 +32,10 @@ var router = function (nav) {
         .get(function (req, res) {
             var url = 'mongodb://localhost:27017/libraryApp';
             mongodb.connect(url, function (err, db) {
+
                 var collection = db.collection('books');
                 collection.insertMany(books, function (err, results) {
+                    
                     res.send(results);
                     db.close();
                  });
