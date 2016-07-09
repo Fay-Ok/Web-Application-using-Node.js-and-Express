@@ -1,6 +1,9 @@
 'use stric';
 var express = require('express');
 var bodyParser = require('body-parser');
+var passport = require('passport');
+var cookiParser = require('cookie-parser');
+var session = require('express-session');
 
 
 var app = express();
@@ -17,6 +20,10 @@ var authRouter = require('./src/routes/authRoutes')(nav);
 app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
+app.use(cookiParser());
+app.use(session({ secret: 'library' }));
+
+require('./src/views/config/passport')(app);
 
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
