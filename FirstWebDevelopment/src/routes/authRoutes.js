@@ -4,7 +4,7 @@ var mongodb = require('mongodb').MongoClient;
 
 
 var router = function (params) {
-    authRouter.router('signUp')
+    authRouter.route('/signUp')
         .post(function (req, res) {
             console.log(req.body);
         });
