@@ -4,12 +4,12 @@ var passportFunction = function (app) {
     app.use(passport.initialize());
     app.use(passport.session());
 
-    passport.serilizeUser(function (user, done) {
-        done(err, user);
+    passport.serializeUser(function (user, done) {
+        done(null, user);
     });
 
-    passport.deserilizeUser(function (user, done) {
-        done(err, user);
+    passport.deserializeUser(function (user, done) {
+        done(null, user);
     });
 
     require('./strategies/local.strategy')();
