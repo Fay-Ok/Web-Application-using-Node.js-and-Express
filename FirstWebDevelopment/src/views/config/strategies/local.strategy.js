@@ -1,5 +1,5 @@
 var passport = require('passport'),
-    LocalStrategy = require('passport-local').strategy;
+    LocalStrategy = require('passport-local').Strategy;
 
 
 
