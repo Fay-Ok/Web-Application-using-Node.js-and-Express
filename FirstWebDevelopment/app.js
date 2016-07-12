@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(session({ secret: 'library' }));
 
-require('./src/views/config/passport')(app);
+require('./src/config/passport')(app);
 
 app.set('views', './src/views');
 app.set('view engine', 'ejs');

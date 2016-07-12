@@ -47,9 +47,6 @@ var router = function (nav) {
             });
 
         });
-
-
-
     return bookRouter;
 
 };
