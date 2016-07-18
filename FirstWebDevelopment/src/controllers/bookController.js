@@ -4,6 +4,15 @@ var objectId = require('mongodb').ObjectID;
 
 var bookControllers = function (bookService, nav) {
 
+    var middleware = function (req, res, next) {
+        if (!req.user) {
+            //res.redirect('/');
+        }
+        next();
+
+    }
+
+
     var getIndex = function (req, res) {
 
         var url = 'mongodb://localhost:27017/libraryApp';
@@ -46,7 +55,8 @@ var bookControllers = function (bookService, nav) {
 
     return {
         getIndex: getIndex,
-        getById: getById
+        getById: getById,
+        middleware:middleware
     }
 
 };
