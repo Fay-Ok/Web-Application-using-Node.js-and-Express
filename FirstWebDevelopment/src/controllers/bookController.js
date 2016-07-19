@@ -39,13 +39,18 @@ var bookControllers = function (bookService, nav) {
         mongodb.connect(url, function (err, db) {
             var collection = db.collection('books');
 
-            collection.findOne({ _id: id },
+            collection.findOne(
+                { _id: id },
                 function (err, results) {
-                    res.render('bookView', {
-                        title: 'Books',
-                        nav: nav,
-                        book: results
-                    });
+                    bookService.getBookById(results.bookId, function (arr, book) {
+                        results.book = book;
+                        res.render('bookView', {
+                            title: 'Books',
+                            nav: nav,
+                            book: results
+                        });
+                    })
+
                 }
             );
 
@@ -56,7 +61,7 @@ var bookControllers = function (bookService, nav) {
     return {
         getIndex: getIndex,
         getById: getById,
-        middleware:middleware
+        middleware: middleware
     }
 
 };
